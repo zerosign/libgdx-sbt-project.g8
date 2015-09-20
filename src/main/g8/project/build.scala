@@ -44,8 +44,19 @@ object Settings {
   )
 
   lazy val desktop = core ++ Seq(
+    resolvers ++= Seq(
+      Resolver.mavenLocal,
+      DefaultMavenRepository,
+      Resolver.typesafeRepo("releases"),
+      Resolver.typesafeRepo("snapshots"),
+      Resolver.typesafeIvyRepo("snapshots"),
+      Resolver.sonatypeRepo("releases"),
+      Resolver.sonatypeRepo("snapshots"),
+      Resolver.defaultLocal,
+      Resolver.jcenterRepo
+    ),
     libraryDependencies ++= Seq(
-      "net.sf.proguard" % "proguard-base" % "5.2.11" % "provided",
+      "net.sf.proguard" % "proguard-base" % "5.2.1" % "provided",
       "com.badlogicgames.gdx" % "gdx-backend-lwjgl" % libgdxVersion.value,
       "com.badlogicgames.gdx" % "gdx-platform" % libgdxVersion.value classifier "natives-desktop"
     ),
@@ -56,6 +67,17 @@ object Settings {
   )
 
   lazy val android = core ++ Tasks.natives ++ androidBuild ++ Seq(
+    resolvers ++= Seq(
+      Resolver.mavenLocal,
+      DefaultMavenRepository,
+      Resolver.typesafeRepo("releases"),
+      Resolver.typesafeRepo("snapshots"),
+      Resolver.typesafeIvyRepo("snapshots"),
+      Resolver.sonatypeRepo("releases"),
+      Resolver.sonatypeRepo("snapshots"),
+      Resolver.defaultLocal,
+      Resolver.jcenterRepo
+    ),
     libraryDependencies ++= Seq(
       "com.badlogicgames.gdx" % "gdx-backend-android" % libgdxVersion.value,
       "com.badlogicgames.gdx" % "gdx-platform" % libgdxVersion.value % "natives" classifier "natives-armeabi",
