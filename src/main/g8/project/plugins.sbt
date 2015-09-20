@@ -1,5 +1,7 @@
-resolvers += Resolver.url("scalasbt snapshots", new URL("http://repo.scala-sbt.org/scalasbt/sbt-plugin-snapshots"))(Resolver.ivyStylePatterns)
+resolvers ++= Seq(
+  Resolver.jcenterRepo
+)
 
-addSbtPlugin("com.hanhuy.sbt" % "android-sdk-plugin" % "1.3.6")
+addSbtPlugin("com.hanhuy.sbt" % "android-sdk-plugin" % "1.4.14")
 
-addSbtPlugin("org.roboscala" % "sbt-robovm" % "1.0.0-alpha-04-SNAPSHOT")
+addSbtPlugin("org.roboscala" % "sbt-robovm" % "1.6.0")
